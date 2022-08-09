@@ -1,5 +1,5 @@
 <p align="center">
-<img src="" height="100" alt="Bloc" />
+<img src="" height="100" alt="cupertino_refresh" />
 </p>
 <h2 align="center">cupertino_refresh</h2>
 
@@ -13,15 +13,3 @@ So, why package then? 🤔
 You see, `CupertinoRefreshSliver` is a sliver which means in order to be able to use it you have to use `CustomScrollView` to layout your widgets and `Sliver`s for everything, although, if not for everything but at least with wrapping widgets inside of a `SliverToBoxAdapter`, yet, always, `Sliver`s are there. But who wants to refactor every screen, page, or whatever metric you have for view just to have iOS-like refresh control? I didn't, so I've created a workaround which I call: the `CupertinoRefresh` widget.
 
 PS: If you're already using `CustomScrollVeiew` for the layout you can use `CupertinoRefreshSliver` directly as the first element of your `Sliver`s list. See example below.
-
-## Dart Versions
-
-- Dart 2: >= 2.12
-
-## Examples
-
-- [Counter](https://github.com/felangel/bloc/tree/master/packages/bloc/example) - an example of how to create a `CounterBloc` in a pure Dart app.
-
-## Maintainers
-
-- [Felix Angelov](https://github.com/felangel)
