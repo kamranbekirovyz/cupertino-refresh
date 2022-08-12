@@ -10,7 +10,7 @@ class CupertinoRefresh extends StatelessWidget {
   /// widget can be assigned.
   final Widget child;
 
-  /// A void function that is called when the user has draggeed the refresh control
+  /// A void function that is called when the user has dragged the refresh control
   /// far enough to demonstrate that they want the content to be refreshed.
   final Function onRefresh;
 
@@ -20,7 +20,7 @@ class CupertinoRefresh extends StatelessWidget {
   /// Optional [ScrollController] which will be assigned to the [CustomScrollView]
   ///
   /// If you want to assign [ScrollController] to the [Scrollbar] instead,
-  /// use [scrollController] argyment of [ScrollbarConfiguration]
+  /// use [scrollController] argument of [ScrollbarConfiguration]
   final ScrollController? controller;
 
   /// [ScrollViewKeyboardDismissBehavior] the defines how this [ScrollView] will
