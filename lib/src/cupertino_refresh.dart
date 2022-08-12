@@ -87,8 +87,8 @@ class CupertinoRefresh extends StatelessWidget {
           delayDuration: delayDuration,
           onRefresh: () async {
             return Future.microtask(() async {
-              await Future.delayed(delayDuration);
               await onRefresh.call();
+              await Future.delayed(delayDuration);
             });
           },
         ),
