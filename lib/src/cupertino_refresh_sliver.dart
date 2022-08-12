@@ -13,10 +13,10 @@ class CupertinoRefreshSliver extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoSliverRefreshControl(
-      onRefresh: () async {
+      onRefresh: () {
         return Future.microtask(() async {
-          await Future.delayed(delayDuration);
           await onRefresh.call();
+          await Future.delayed(delayDuration);
         });
       },
     );

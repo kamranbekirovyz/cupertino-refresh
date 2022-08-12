@@ -85,12 +85,7 @@ class CupertinoRefresh extends StatelessWidget {
       slivers: [
         CupertinoRefreshSliver(
           delayDuration: delayDuration,
-          onRefresh: () async {
-            return Future.microtask(() async {
-              await onRefresh.call();
-              await Future.delayed(delayDuration);
-            });
-          },
+          onRefresh: onRefresh,
         ),
         SliverToBoxAdapter(child: child_),
       ],
