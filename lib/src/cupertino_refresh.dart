@@ -1,52 +1,87 @@
 import 'package:cupertino_refresh/cupertino_refresh.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class CupertinoRefresh extends StatelessWidget {
-  final Function onRefresh;
+  /// The widget that is being wrapped around refresh control and is below this
+  /// widget in the widget tree.
+  ///
+  /// [child] argument must not necessarily be a scrollable widget as any kind of
+  /// widget can be assigned.
   final Widget child;
+
+  /// A void function that is called when the user has draggeed the refresh control
+  /// far enough to demonstrate that they want the content to be refreshed.
+  final Function onRefresh;
+
+  /// An extra duration to delay "refreshing" animation completion after [onRefresh] function ends.
   final Duration delayDuration;
+
+  /// Optional [ScrollController] which will be assigned to the [CustomScrollView]
+  ///
+  /// If you want to assign [ScrollController] to the [Scrollbar] instead,
+  /// use [scrollController] argyment of [ScrollbarConfiguration]
   final ScrollController? controller;
 
-  final ScrollbarConfiguration _scrollbarConfiguration;
+  /// [ScrollViewKeyboardDismissBehavior] the defines how this [ScrollView] will
+  /// dismiss the keyboard automatically.
+  final ScrollViewKeyboardDismissBehavior keyboardDismissBehavior;
+
+  /// How the scroll view should respond to user input.
+  ///
+  /// Defaults to matching platform conventions.
+  final ScrollPhysics? physics;
+
+  /// Configurations for [Scrollbar]
+  ///
+  /// Only has any effects when [CupertinoRefresh.withScrollbar] is being used
+  final ScrollbarConfiguration scrollbarConfiguration;
+
+  /// flag for whether [CupertinoRefresh] has [Scrollbar] or not
   final bool _hasScrollbar;
 
+  /// Creates a iOS-like refresh control.
+  ///
+  /// The [onRefresh] and [child] arguments must be specified.
   const CupertinoRefresh({
     Key? key,
     required this.onRefresh,
     required this.child,
-    this.delayDuration = Duration.zero,
     this.controller,
-    ScrollbarConfiguration? scrollbarConfiguration,
+    this.physics,
+    this.delayDuration = Duration.zero,
+    this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.onDrag,
+    this.scrollbarConfiguration = const ScrollbarConfiguration(),
   })  : _hasScrollbar = false,
-        _scrollbarConfiguration = const ScrollbarConfiguration(),
         super(key: key);
 
+  /// Creates an iOS-like refresh control with iOS-like scrollbar.
+  ///
+  /// The [onRefresh] and [child] arguments must be specified.
   const CupertinoRefresh.withScrollbar({
     Key? key,
     required this.onRefresh,
     required this.child,
     this.controller,
-    ScrollbarConfiguration? scrollbarConfiguration,
+    this.physics,
     this.delayDuration = Duration.zero,
+    this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.onDrag,
+    this.scrollbarConfiguration = const ScrollbarConfiguration(),
   })  : _hasScrollbar = true,
-        _scrollbarConfiguration = scrollbarConfiguration ?? const ScrollbarConfiguration(),
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    controller.hashCode == _scrollbarConfiguration.controller.hashCode;
-
     final child_ = SingleChildScrollView(
-      keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+      keyboardDismissBehavior: keyboardDismissBehavior,
+      physics: physics,
       child: child,
     );
 
     final widget = CustomScrollView(
       controller: controller,
-      keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-      physics: const AlwaysScrollableScrollPhysics(
-        parent: BouncingScrollPhysics(),
-      ),
+      keyboardDismissBehavior: keyboardDismissBehavior,
+      physics: physics,
       slivers: [
         CupertinoRefreshSliver(
           delayDuration: delayDuration,
@@ -63,14 +98,14 @@ class CupertinoRefresh extends StatelessWidget {
 
     return _hasScrollbar
         ? CupertinoScrollbar(
-            controller: _scrollbarConfiguration.controller,
-            thumbVisibility: _scrollbarConfiguration.thumbVisibility,
-            thickness: _scrollbarConfiguration.thickness,
-            thicknessWhileDragging: _scrollbarConfiguration.thicknessWhileDragging,
-            radius: _scrollbarConfiguration.radius,
-            radiusWhileDragging: _scrollbarConfiguration.radiusWhileDragging,
-            notificationPredicate: _scrollbarConfiguration.notificationPredicate,
-            scrollbarOrientation: _scrollbarConfiguration.scrollbarOrientation,
+            controller: scrollbarConfiguration.controller,
+            thumbVisibility: scrollbarConfiguration.thumbVisibility,
+            thickness: scrollbarConfiguration.thickness,
+            thicknessWhileDragging: scrollbarConfiguration.thicknessWhileDragging,
+            radius: scrollbarConfiguration.radius,
+            radiusWhileDragging: scrollbarConfiguration.radiusWhileDragging,
+            notificationPredicate: scrollbarConfiguration.notificationPredicate,
+            scrollbarOrientation: scrollbarConfiguration.scrollbarOrientation,
             child: widget,
           )
         : widget;
