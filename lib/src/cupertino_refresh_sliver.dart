@@ -9,7 +9,7 @@ class CupertinoRefreshSliver extends StatelessWidget {
   /// [onRefresh] function ends.
   final Duration delayDuration;
 
-  /// Creates a iOS-like refresh control as a [Sliver] so that it can be used as a
+  /// Creates a iOS-styled refresh control as a [Sliver] so that it can be used as a
   /// child, ideally first one, of [CustomScrollView].
   ///
   /// The [onRefresh] and [child] arguments must be specified.

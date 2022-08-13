@@ -41,7 +41,7 @@ class CupertinoRefresh extends StatelessWidget {
   /// flag for whether [CupertinoRefresh] has [Scrollbar] or not
   final bool _hasScrollbar;
 
-  /// Creates a iOS-like refresh control.
+  /// Creates a iOS-styled refresh control.
   ///
   /// The [onRefresh] and [child] arguments must be specified.
   const CupertinoRefresh({
@@ -56,7 +56,7 @@ class CupertinoRefresh extends StatelessWidget {
   })  : _hasScrollbar = false,
         super(key: key);
 
-  /// Creates an iOS-like refresh control with iOS-like scrollbar.
+  /// Creates an iOS-styled refresh control with iOS-styled scrollbar.
   ///
   /// The [onRefresh] and [child] arguments must be specified.
   const CupertinoRefresh.withScrollbar({
