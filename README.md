@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://raw.githubusercontent.com/porelarte/cupertino-refresh/master/_external/cover.png" height="320" alt="cupertino_refresh" />
+<img src="https://raw.githubusercontent.com/porelarte/cupertino-refresh/master/_external/cover.png" alt="cupertino_refresh" />
 </p>
 <h2 align="center">cupertino_refresh</h2>
 
