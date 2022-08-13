@@ -14,7 +14,8 @@ class CupertinoRefresh extends StatelessWidget {
   /// far enough to demonstrate that they want the content to be refreshed.
   final Function onRefresh;
 
-  /// An extra duration to delay "refreshing" animation completion after [onRefresh] function ends.
+  /// An extra duration to delay "refreshing" animation completion after
+  /// [onRefresh] function ends.
   final Duration delayDuration;
 
   /// Optional [ScrollController] which will be assigned to the [CustomScrollView]

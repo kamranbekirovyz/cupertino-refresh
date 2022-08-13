@@ -12,4 +12,4 @@ So, why package then? 🤔
 
 You see, `CupertinoRefreshSliver` is a sliver which means in order to be able to use it you have to use `CustomScrollView` to layout your widgets and `Sliver`s for everything, although, if not for everything but at least with wrapping widgets inside of a `SliverToBoxAdapter`, yet, always, `Sliver`s are there. But who wants to refactor every screen, page, or whatever metric you have for view just to have iOS-like refresh control? I didn't, so I've created a workaround which I call: the `CupertinoRefresh` widget.
 
-PS: If you're already using `CustomScrollVeiew` for the layout you can use `CupertinoRefreshSliver` directly as the first element of your `Sliver`s list. See example below.
+PS: If you're already using `CustomScrollView` for the layout you can use `CupertinoRefreshSliver` directly as the first element of your `Sliver`s list. See example below.
