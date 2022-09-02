@@ -1,6 +1,6 @@
 name: cupertino_refresh
-description: iOS style pull to refresh indicator for Flutter.
-version: 1.0.0
+description: iOS-styled pull to refresh control for Flutter.
+version: 0.9.0
 homepage:
 
 environment:

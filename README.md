@@ -6,7 +6,7 @@
 
 ## Motivation behind the package
 
-While developing one of my client's mobile application I felt a need for a UI component for the purpose that whenever the user wants to refresh the page, he/she should be able to trigger an all-over start for the screen and its data instead of going back and reopening the screen. By using `RefreshIndicator` which is included in the `material` package of Flutter the mission was achieved. But, it was, seemingly, exotic on iOS devices. I felt a need, the need for an iOS-styled refresh indicator, which turned out to be included in the `cupertino` package of Flutter as `CupertinoRefreshSliver`. 
+While developing one of my client's mobile application I felt a need for a UI component for the purpose that whenever the user wants to refresh the page, he/she should be able to trigger an all-over start for the screen and its data instead of going back and reopening the screen. By using `RefreshIndicator` which is included in the `material` package of Flutter the mission was achieved. But, it was, seemingly, exotic on iOS devices. I felt a need, the need for an iOS-styled refresh control, which turned out to be included in the `cupertino` package of Flutter as `CupertinoRefreshSliver`. 
 
 So, why package then? 🤔
 
