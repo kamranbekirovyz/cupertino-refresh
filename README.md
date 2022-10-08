@@ -3,7 +3,7 @@
 
 iOS-styled refresh control Widget and Sliver for Flutter.
 
-<img src="https://raw.githubusercontent.com/porelarte/cupertino-refresh/master/_external/cover.png" alt="cover_picture" />
+<img src="https://raw.githubusercontent.com/porelarte/cupertino-refresh/master/.docs/cover.png" alt="cover_picture" />
 
 ## 🚀 Motivation
 
