@@ -1,7 +1,7 @@
 name: cupertino_refresh
 description: iOS-styled pull to refresh control for Flutter.
 version: 0.9.0
-homepage:
+homepage: https://github.com/porelarte/cupertino-refresh
 
 environment:
   sdk: ">=2.17.5 <3.0.0"
