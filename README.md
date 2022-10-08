@@ -28,37 +28,39 @@ There are two types of refresh control as mentioned above:
 ```dart
 ...
 CupertinoRefresh.withScrollbar(
-	onRefresh:  _fetch,
+  onRefresh: () {
+    return _fetchData();
+  },
 
-	/// The child of [CupertinoRefresh] widget must not be necessarily a
-	/// scrollable widget as it can be any widget
+  /// The child of [CupertinoRefresh] widget must not be necessarily a
+  /// scrollable widget as it can be any widget
 
-	child:  Column(
-		children: [
-		
-			/// While using with [SingleChildScrollView] is seamless,
-			/// [ListView] has its limitations as commented below:
-			ListView.builder(
-						
-			// [itemCount] must be specified/can not be infinite
-			itemCount:  flutterFavorites.length,
-			
-			/// [shrinkWrap] must be set as "true", otherwise you'll get [RenderViewport] issue
-			shrinkWrap:  true,
-			
-			/// For better control set [NeverScrollableScrollPhysics] to [physics]
-			physics:  const  NeverScrollableScrollPhysics(),
+  child:  Column(
+    children: [
+    
+      /// While using with [SingleChildScrollView] is seamless,
+      /// [ListView] has its limitations as commented below:
+      ListView.builder(
+            
+      // [itemCount] must be specified/can not be infinite
+      itemCount:  flutterFavorites.length,
+      
+      /// [shrinkWrap] must be set as "true", otherwise you'll get [RenderViewport] issue
+      shrinkWrap:  true,
+      
+      /// For better control set [NeverScrollableScrollPhysics] to [physics]
+      physics:  const  NeverScrollableScrollPhysics(),
 
-			itemBuilder: (_,  int  index) { ... },
-			),
-		],
-	),
+      itemBuilder: (_,  int  index) { ... },
+      ),
+    ],
+  ),
 )
 ```
 
 ## 🙏 Credits
 
-The inspiration came from Aljan Shikiyev.
+Thanks to <a href="https://github.com/mrjnlcn">Aljan Shikiyev</a"> for being inspiration for this `Widget` and `Sliver`.
 
 ## 🐞 Bugs/Requests
 
