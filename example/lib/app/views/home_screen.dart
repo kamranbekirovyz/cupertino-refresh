@@ -16,7 +16,9 @@ class HomeScreen extends StatelessWidget {
         child: CupertinoTabScaffold(
           tabBuilder: (context, index) {
             return SafeArea(
-              child: index == 0 ? const ListViewExampleTab() : const SliverExample(),
+              child: index == 0
+                  ? const ListViewExampleTab()
+                  : const SliverExample(),
             );
           },
           tabBar: CupertinoTabBar(

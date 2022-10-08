@@ -97,7 +97,8 @@ class CupertinoRefresh extends StatelessWidget {
             controller: scrollbarConfiguration.controller,
             thumbVisibility: scrollbarConfiguration.thumbVisibility,
             thickness: scrollbarConfiguration.thickness,
-            thicknessWhileDragging: scrollbarConfiguration.thicknessWhileDragging,
+            thicknessWhileDragging:
+                scrollbarConfiguration.thicknessWhileDragging,
             radius: scrollbarConfiguration.radius,
             radiusWhileDragging: scrollbarConfiguration.radiusWhileDragging,
             notificationPredicate: scrollbarConfiguration.notificationPredicate,
