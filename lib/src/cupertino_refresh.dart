@@ -2,7 +2,7 @@ import 'package:cupertino_refresh/cupertino_refresh.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class CupertinoRefresh extends StatelessWidget {
+class CupertinoRefresh extends StatefulWidget {
   /// The widget that is being wrapped around refresh control and is below this
   /// widget in the widget tree.
   ///
@@ -72,39 +72,50 @@ class CupertinoRefresh extends StatelessWidget {
         super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final child_ = SingleChildScrollView(
-      keyboardDismissBehavior: keyboardDismissBehavior,
-      physics: physics,
-      child: child,
-    );
+  State<CupertinoRefresh> createState() => _CupertinoRefreshState();
+}
 
-    final widget = CustomScrollView(
-      controller: controller,
-      keyboardDismissBehavior: keyboardDismissBehavior,
-      physics: physics,
+class _CupertinoRefreshState extends State<CupertinoRefresh> {
+  ScrollController? _controller;
+
+  @override
+  void initState() {
+    super.initState();
+
+    if (widget.controller == null) {
+      _controller = ScrollController();
+    }
+  }
+
+  ScrollController get _scrollController => widget.controller ?? _controller!;
+
+  @override
+  Widget build(BuildContext context) {
+    final widget_ = CustomScrollView(
+      controller: _scrollController,
+      keyboardDismissBehavior: widget.keyboardDismissBehavior,
+      physics: widget.physics,
       slivers: [
         CupertinoRefreshSliver(
-          delayDuration: delayDuration,
-          onRefresh: onRefresh,
+          delayDuration: widget.delayDuration,
+          onRefresh: widget.onRefresh,
         ),
-        SliverToBoxAdapter(child: child_),
+        SliverToBoxAdapter(child: widget.child),
       ],
     );
 
-    return _hasScrollbar
+    return widget._hasScrollbar
         ? CupertinoScrollbar(
-            controller: scrollbarConfiguration.controller,
-            thumbVisibility: scrollbarConfiguration.thumbVisibility,
-            thickness: scrollbarConfiguration.thickness,
-            thicknessWhileDragging:
-                scrollbarConfiguration.thicknessWhileDragging,
-            radius: scrollbarConfiguration.radius,
-            radiusWhileDragging: scrollbarConfiguration.radiusWhileDragging,
-            notificationPredicate: scrollbarConfiguration.notificationPredicate,
-            scrollbarOrientation: scrollbarConfiguration.scrollbarOrientation,
-            child: widget,
+            controller: _scrollController,
+            thumbVisibility: widget.scrollbarConfiguration.thumbVisibility,
+            thickness: widget.scrollbarConfiguration.thickness,
+            thicknessWhileDragging: widget.scrollbarConfiguration.thicknessWhileDragging,
+            radius: widget.scrollbarConfiguration.radius,
+            radiusWhileDragging: widget.scrollbarConfiguration.radiusWhileDragging,
+            notificationPredicate: widget.scrollbarConfiguration.notificationPredicate,
+            scrollbarOrientation: widget.scrollbarConfiguration.scrollbarOrientation,
+            child: widget_,
           )
-        : widget;
+        : widget_;
   }
 }

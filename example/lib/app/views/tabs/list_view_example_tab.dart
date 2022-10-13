@@ -30,6 +30,7 @@ class _ListViewExampleTabState extends State<ListViewExampleTab> {
   Widget build(BuildContext context) {
     return CupertinoRefresh.withScrollbar(
       onRefresh: _fetch,
+      controller: ScrollController(),
 
       /// The child of [CupertinoRefresh] widget must not be necessarily a
       /// scrollable widget as it can be any widget

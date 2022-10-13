@@ -60,7 +60,7 @@ CupertinoRefresh.withScrollbar(
 
 ## 🙏 Credits
 
-Thanks to <a href="https://github.com/mrjnlcn">Aljan Shikiyev</a"> for being inspiration for this `Widget` and `Sliver`.
+Thanks to <a href="https://github.com/mrjnlcn">Aljan Shikiyev</a> for being inspiration for this `Widget` and `Sliver`.
 
 ## 🐞 Bugs/Requests
 

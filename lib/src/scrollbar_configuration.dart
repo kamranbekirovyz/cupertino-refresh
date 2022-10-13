@@ -14,8 +14,9 @@ const Radius defaultRadius = Radius.circular(1.5);
 /// [ScrollbarConfiguration].
 const Radius defaultRadiusWhileDragging = Radius.circular(4.0);
 
+// TODO: scrollbar can not have unique ScrollController, left intentionally.
+
 class ScrollbarConfiguration {
-  final ScrollController? controller;
   final bool? thumbVisibility;
   final double thickness;
 
@@ -31,7 +32,6 @@ class ScrollbarConfiguration {
   final ScrollbarOrientation? scrollbarOrientation;
 
   const ScrollbarConfiguration({
-    this.controller,
     this.thumbVisibility,
     this.thickness = defaultThickness,
     this.thicknessWhileDragging = defaultThicknessWhileDragging,
