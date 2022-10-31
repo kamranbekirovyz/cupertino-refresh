@@ -32,24 +32,25 @@ class _ListViewExampleTabState extends State<ListViewExampleTab> {
       onRefresh: _fetch,
       controller: ScrollController(),
 
-      /// The child of [CupertinoRefresh] widget must not be necessarily a
-      /// scrollable widget as it can be any widget
+      // The child of CupertinoRefresh widget must not be necessarily a
+      // scrollable widget as it can be any widget
       child: Column(
         children: [
           const SizedBox(height: 16.0),
 
-          /// While using with [SingleChildScrollView] is seamless,
-          /// [ListView] has its limitations as commented below:
+          // While using with SingleChildScrollView is seamless,
+          // ListView has its limitations as commented below:
           ListView.builder(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
 
-            // [itemCount] must be specified/can not be infinite
+            // itemCount must be specified/can not be infinite
             itemCount: flutterFavorites.length,
 
-            /// [shrinkWrap] must be set as "true", otherwise you'll get [RenderViewport] issue
+            // shrinkWrap must be set as "true", otherwise you'll get
+            // RenderViewport issue.
             shrinkWrap: true,
 
-            /// For better control set [NeverScrollableScrollPhysics] to [physics]
+            // For better control set NeverScrollableScrollPhysics to physics.
             physics: const NeverScrollableScrollPhysics(),
             itemBuilder: (_, int index) {
               final favorite = flutterFavorites.elementAt(index);
