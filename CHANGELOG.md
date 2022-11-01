@@ -1,4 +1,9 @@
-## 0.9.3
+## 0.9.4
+
+- Updated cover image.
+- Added contributors section to the README.
+
+## 0.9.4
 
 - Fixed CHANGELOG version typos.
 

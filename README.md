@@ -13,7 +13,8 @@ So, why package then? 🤔
 
 You see, `CupertinoRefreshSliver` is a sliver which means in order to be able to use it you have to use `CustomScrollView` to layout your widgets and `Sliver`s for everything, although, if not for everything but at least with refactoring and wrapping widgets inside `SliverToBoxAdapter`, yet, always, `Sliver`s are there. But who wants to refactor every view just to have iOS-styled refresh control? I didn't, so I've created a workaround which I call: the `CupertinoRefresh` widget.
 
-PS: If you're already using `CustomScrollView` for layout you can use `CupertinoRefreshSliver` directly as the first element of your `Sliver`s list. See the example below.
+*Note N1:* If you're already using `CustomScrollView` for layout you can use `CupertinoRefreshSliver` directly as the first element of your `Sliver`s list. See the example below.  
+*Note N2:* Before you use `CupertinoRefresh` Widget read <a href="https://github.com/porelarte/cupertino-refresh#-performance-concerns">Performance concerns</a> section.
 
 ## 🕹️ Usage
 
@@ -85,10 +86,14 @@ Now, setting `shrinkWrap` as `true` is the root of the performance drawback. Acc
 
 In conclusion I would say, whether you use this package or not, always consider using `Sliver`s for better performance and use `ListView` when there are lesser elements and rendering them are not expensive.
 
-Read more:
+Read more:  
 -- dart-lang issue: <a href="https://github.com/dart-lang/linter/issues/3496">#3496</a>  
 -- dart code metric: <a href="https://dartcodemetrics.dev/docs/rules/flutter/avoid-shrink-wrap-in-lists">avoid-shrink-wrap-in-lists</a>  
 -- "Decoding Flutter" series: <a href="https://www.youtube.com/watch?v=LUqDNnv_dh0">ShrinkWrap vs Slivers</a>  
+
+## 🤓 Contributors
+
+<a href="https://github.com/porelarte/cupertino-refresh/graphs/contributors"><img src="https://github.com/kamranbekirovyz.png" height="75"></a>  
 
 ## 🙏 Credits
 
