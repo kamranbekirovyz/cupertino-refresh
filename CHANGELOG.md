@@ -1,3 +1,7 @@
+## 0.9.3
+
+- Fixed CHANGELOG version typos.
+
 ## 0.9.2
 
 - README and docs completed, ready for public use.
