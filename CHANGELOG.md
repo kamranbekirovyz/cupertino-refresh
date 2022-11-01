@@ -1,4 +1,8 @@
-## 0.9.1
+## 0.9.2
+
+- README and docs completed, ready for public use.
+
+## 0.9.2
 
 - Fixed "ScrollController not attached to any scroll views" exceptions. 
 - Performance concerns are added to README.

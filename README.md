@@ -7,18 +7,18 @@ iOS-styled refresh control Widget and Sliver for Flutter.
 
 ## 🚀 Motivation
 
-While developing one of my client's mobile application I felt a need for a UI component for the purpose that whenever a user wants to refresh the page, he/she should be able to trigger an all-over start for the page's data instead of going back and renavigating. By using `RefreshIndicator` which is included in the `material` package of Flutter the mission was achieved. But, it was, seemingly, exotic on iOS devices. I felt a need, the need for an iOS-styled refresh control, which turned out to be included in the `cupertino` package of Flutter as `CupertinoRefreshSliver`.
+While developing one of my client's mobile application I felt a need for a UI component for the purpose that whenever a user wants to refresh the page, he/she should be able to trigger an all-over start for the page's data instead of going back and renavigating. By using `RefreshIndicator` which is included in the `material` package of the Flutter framework the mission was achieved. But, it was, seemingly, exotic on iOS devices. I felt a need, the need for an iOS-styled refresh control, which turned out to be included in the `cupertino` package of Flutter as `CupertinoRefreshSliver`.
 
 So, why package then? 🤔
 
 You see, `CupertinoRefreshSliver` is a sliver which means in order to be able to use it you have to use `CustomScrollView` to layout your widgets and `Sliver`s for everything, although, if not for everything but at least with refactoring and wrapping widgets inside `SliverToBoxAdapter`, yet, always, `Sliver`s are there. But who wants to refactor every view just to have iOS-styled refresh control? I didn't, so I've created a workaround which I call: the `CupertinoRefresh` widget.
 
-PS: If you're already using `CustomScrollView` for the layout you can use `CupertinoRefreshSliver` directly as the first element of your `Sliver`s list. See the example below.
+PS: If you're already using `CustomScrollView` for layout you can use `CupertinoRefreshSliver` directly as the first element of your `Sliver`s list. See the example below.
 
 ## 🕹️ Usage
 
 There are two types of refresh control as mentioned above:
-1. `CupertinoRefresh`: a widget that can wrap any other widget.
+1. `CupertinoRefresh`: a widget that can wrap any other widget (both scrollable and non-scrollable).
 2. `CupertinoRefreshSliver`: a Sliver that can be used in combination with Slivers (w/ `CustomScrollView`).
 
 #### 1. `CupertinoRefresh`
@@ -30,23 +30,23 @@ CupertinoRefresh.withScrollbar(
     return _fetchData();
   },
 
-  // The child of [CupertinoRefresh] widget must not be necessarily a
+  // The child of CupertinoRefresh widget must not be necessarily a
   // scrollable widget as it can be any widget
 
   child:  Column(
     children: [
     
-      // While using with [SingleChildScrollView] is seamless,
-      // [ListView] has its limitations as commented below:
+      // While using with SingleChildScrollView is seamless,
+      // ListView has its limitations as commented below:
       ListView.builder(
             
-      // [itemCount] must be specified/can not be infinite
+      // itemCount must be specified/can not be infinite
       itemCount:  flutterFavorites.length,
       
-      // [shrinkWrap] must be set as "true", otherwise you'll get [RenderViewport] issue
+      // shrinkWrap must be set as "true", otherwise you'll get RenderViewport issue
       shrinkWrap:  true,
       
-      // For better control set [NeverScrollableScrollPhysics] to [physics]
+      // For better control set NeverScrollableScrollPhysics to physics
       physics:  const  NeverScrollableScrollPhysics(),
 
       itemBuilder: (_,  int  index) { ... },
@@ -83,12 +83,12 @@ The solution for such cases is to set `shrinkWrap` property of the scrollable wi
 
 Now, setting `shrinkWrap` as `true` is the root of the performance drawback. According to the Flutter <a href="https://api.flutter.dev/flutter/widgets/ScrollView/shrinkWrap.html">documentation</a>, using `shrinkWrap` in lists is expensive performance-wise and should be avoided. Why? Because, when used as such, the scrollable widget builds all children at once (Flutter issue <a href="https://github.com/flutter/flutter/issues/26072">#26072</a>).
 
-In conclusion I would say, whether you use this package or not, always consider using `Sliver`s for better performance and use `ListView` when there are less then 100 elements and rendering them are not expensive.
+In conclusion I would say, whether you use this package or not, always consider using `Sliver`s for better performance and use `ListView` when there are lesser elements and rendering them are not expensive.
 
 Read more:
--- dart-lang issue: <a href="https://github.com/dart-lang/linter/issues/3496">#3496</a>
--- dart code metric: <a href="https://dartcodemetrics.dev/docs/rules/flutter/avoid-shrink-wrap-in-lists">avoid-shrink-wrap-in-lists</a>
--- "Decoding Flutter" series: <a href="https://www.youtube.com/watch?v=LUqDNnv_dh0">ShrinkWrap vs Slivers</a>
+-- dart-lang issue: <a href="https://github.com/dart-lang/linter/issues/3496">#3496</a>  
+-- dart code metric: <a href="https://dartcodemetrics.dev/docs/rules/flutter/avoid-shrink-wrap-in-lists">avoid-shrink-wrap-in-lists</a>  
+-- "Decoding Flutter" series: <a href="https://www.youtube.com/watch?v=LUqDNnv_dh0">ShrinkWrap vs Slivers</a>  
 
 ## 🙏 Credits
 
@@ -100,4 +100,4 @@ If you encounter any problems please open an issue. If you feel the library is m
 
 ## 📃 License
 
-MIT License
+<a href="https://github.com/porelarte/cupertino-refresh/blob/master/LICENSE">MIT License</a>

@@ -30,8 +30,8 @@ class _SliverExampleState extends State<SliverExample> {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        // Using [CupertinoRefreshSliver] is pretty straightforward as the rest
-        // of the [CustomScrollView] children are up to you to be built using[] Sliver]s
+        // Using CupertinoRefreshSliver is pretty straightforward as the rest
+        // of the CustomScrollView children are up to you to be built using Slivers
         CupertinoRefreshSliver(onRefresh: _fetch),
         const SliverToBoxAdapter(
           child: SizedBox(height: 16.0),
