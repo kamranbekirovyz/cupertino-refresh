@@ -72,19 +72,18 @@ CustomScrollView(
 ...
 ```
 
-
 ## 📈 Performance concerns
 While `CupertinoRefreshSliver` has no performance drawbacks, `CupertinoRefresh` can have and it's related to how scrollable widgets behave in the Flutter framework. Although you may not end up using this package consider reading the part below so that you can be aware of performance-related issues while using any kind of scrollable widget in Flutter.
 
+The long and the short of the matter is that scrollable widgets like `ListView`, `GridView`, `PageView`, and `CustomScrollView` try to fill all the available space given by the parent element, even when the list items would require less space <a href="https://stackoverflow.com/a/54008230">Read detailed.</a>
+
 Because the `CupertinoRefresh` is itself an intrinsically scrollable widget if you add another scrollable widget to it as a child, you'll get this error: `Vertical viewport was given unbounded height.` 😖
 
-The long and the short of the matter is that scrollable widgets like `ListView`, `GridView`, `PageView`, and `CustomScrollView` try to fill all the available space given by the parent element, even when the list items would require less space and while `CupertinoRefresh` is also a scrollable widget itself we get this error. <a href="https://stackoverflow.com/a/54008230">Read detailed.</a>
-
-The solution for such cases is to set `shrinkWrap` property of the scrollable widget as `true` and `physics` as `NeverScrollableScrollPhysics` (or <a href="https://www.fluttercampus.com/guide/136/how-to-solve-vertical-viewport-was-given-unbounded-height-error-on-flutter">setting a bounded height on the parent widget</a>).
+The solution for such cases is to set `shrinkWrap` property of the scrollable widget as `true` and `physics` as `NeverScrollableScrollPhysics` or <a href="https://www.fluttercampus.com/guide/136/how-to-solve-vertical-viewport-was-given-unbounded-height-error-on-flutter">setting a bounded height on the parent widget</a>.
 
 Now, setting `shrinkWrap` as `true` is the root of the performance drawback. According to the Flutter <a href="https://api.flutter.dev/flutter/widgets/ScrollView/shrinkWrap.html">documentation</a>, using `shrinkWrap` in lists is expensive performance-wise and should be avoided. Why? Because, when used as such, the scrollable widget builds all children at once (Flutter issue <a href="https://github.com/flutter/flutter/issues/26072">#26072</a>).
 
-In conclusion I would say, whether you use this package or not, always consider using `Sliver`s for better performant.
+In conclusion I would say, whether you use this package or not, always consider using `Sliver`s for better performance and use `ListView` when there are less then 100 elements and rendering them are not expensive.
 
 Read more:
 -- dart-lang issue: <a href="https://github.com/dart-lang/linter/issues/3496">#3496</a>
