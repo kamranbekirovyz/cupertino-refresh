@@ -109,11 +109,15 @@ class _CupertinoRefreshState extends State<CupertinoRefresh> {
             controller: _scrollController,
             thumbVisibility: widget.scrollbarConfiguration.thumbVisibility,
             thickness: widget.scrollbarConfiguration.thickness,
-            thicknessWhileDragging: widget.scrollbarConfiguration.thicknessWhileDragging,
+            thicknessWhileDragging:
+                widget.scrollbarConfiguration.thicknessWhileDragging,
             radius: widget.scrollbarConfiguration.radius,
-            radiusWhileDragging: widget.scrollbarConfiguration.radiusWhileDragging,
-            notificationPredicate: widget.scrollbarConfiguration.notificationPredicate,
-            scrollbarOrientation: widget.scrollbarConfiguration.scrollbarOrientation,
+            radiusWhileDragging:
+                widget.scrollbarConfiguration.radiusWhileDragging,
+            notificationPredicate:
+                widget.scrollbarConfiguration.notificationPredicate,
+            scrollbarOrientation:
+                widget.scrollbarConfiguration.scrollbarOrientation,
             child: widget_,
           )
         : widget_;
