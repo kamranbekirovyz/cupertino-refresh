@@ -1,6 +1,6 @@
 name: cupertino_refresh
-description: iOS-styled pull to refresh control for Flutter.
-version: 0.9.0
+description: iOS-styled pull to refresh control Widget and Sliver for Flutter.
+version: 0.9.1
 homepage: https://github.com/porelarte/cupertino-refresh
 
 environment:
